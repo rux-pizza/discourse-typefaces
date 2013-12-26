@@ -1,0 +1,47 @@
+// Alpha
+@font-face{
+  font-family: "MyImpact";
+  src: url('/assets/fonts/impact.ttf');
+}
+
+// Corporate
+// No external font-face, uses Palatino.
+
+// Smartass
+
+@font-face{
+  font-family: "EcritureAItaliqueOrne";
+  src: url('/assets/fonts/EcritureA-Italique-Orne.otf') format('opentype');
+}
+
+// Humanism
+
+@font-face{
+  font-family: "Humanism";
+  src: url('/assets/fonts/Pacifico.ttf') format('opentype');
+}
+
+
+.typefaces-tag {
+
+  &.alpha {
+    font-family: "MyImpact", "Impact";
+    font-size: 17px;
+    text-transform: uppercase;
+  }
+
+  &.corporate {
+    font-family: "Palatino", Times, serif;
+    font-size: 17px;
+  }
+
+  &.humanism {
+    font-family: "Humanism", "Comic Sans MS";
+    font-size: 16px;
+  }
+
+  &.smartass{
+    font-family: "EcritureAItaliqueOrne", "Comic Sans MS";
+    font-size: 28px;
+  }
+}
