@@ -1,22 +1,22 @@
 (function () {
-    /**
-     Create a simple BBCode tag handler
+    Discourse.Markdown.whiteListTag('span', 'class', '*');
 
-     @method replaceBBCode
-     @param {tag} tag the tag we want to match
-     @param {function} emitter the function that creates JsonML for the tag
-     **/
-    function replaceBBCode(tag, emitter) {
+    var david_u_mad = function(tag) {
         Discourse.Dialect.inlineBetween({
             start: "[" + tag + "]",
-            stop: "[/" + tag + "]",
-            emitter: emitter
+            stop:  "[/" + tag + "]",
+            rawContents: true,
+            emitter: function(contents) {
+                return ['span', {class: "typefaces-tag " + tag}].concat(
+                    this.processInline(contents));
+            }
         });
-    }
+    };
 
-    replaceBBCode('smartass', function(contents) { return ['span', {'class': 'typefaces-tag smartass'}].concat(contents); });
-    replaceBBCode('humanism', function(contents) { return ['span', {'class': 'typefaces-tag humanism'}].concat(contents); });
-    replaceBBCode('corporate', function(contents) { return ['span', {'class': 'typefaces-tag corporate'}].concat(contents); });
-    replaceBBCode('alpha', function(contents) { return ['span', {'class': 'typefaces-tag alpha'}].concat(contents); });
+    david_u_mad('smartass');
+    david_u_mad('corporate');
+    david_u_mad('humanism');
+    david_u_mad('alpha');
+    david_u_mad('rainbow');
 
 }).call(this);
